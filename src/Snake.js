@@ -17,18 +17,30 @@ export default class Snake {
     return body;
   }
 
+  printSnake = () => console.table(this.body);
+
   positionSnake(x, y) {
-    for (let i = 0; i < this.length; i++) {
-      this.body[i].x = x++;
-      this.body[i].y = y;
+    for (let bodyPiece of this.body) {
+      bodyPiece.x = x++;
+      bodyPiece.y = y;
     }
   }
 
   walk() {
-    // TO-DO
+    // Right
+    for (let bodyPiece of this.body) {
+      bodyPiece.x = bodyPiece.x + 1;
+    }
   }
 }
 
 const test = new Snake();
-
-console.log(test.getBody());
+test.printSnake();
+test.positionSnake(0, 0);
+test.printSnake();
+test.walk();
+test.printSnake();
+test.walk();
+test.printSnake();
+test.walk();
+test.printSnake();
