@@ -4,6 +4,8 @@ export default class GameMap {
   constructor(width = 10, height = 8) {
     this.width = width;
     this.height = height;
+
+    // GAME MAP: Each element of the arrays's first dimension has a column
     this.gameMap = this.generateGameMap(this.width, this.height);
   }
 
@@ -21,6 +23,12 @@ export default class GameMap {
       }
 
       console.log(line);
+    }
+  }
+
+  walkTo(x, y) {
+    if (this.gameMap[x][y].getIsOccupied()) {
+      this.gameMap[x][y].setIsOccupied();
     }
   }
 }
